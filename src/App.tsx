@@ -1,25 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import AddList from "./components/AddList";
+import List from "./components/List";
 
 function App() {
+  const [people, setPeople] = useState<DataState["people"]>([
+    {
+      name: "dishp",
+      age: 3,
+      url: "https://cdn4.vectorstock.com/i/1000x1000/01/38/young-man-profile-vector-14770138.jpg",
+      note: "asdasdasd",
+    },
+  ]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <AddList people={people} setPeople={setPeople} />
+      <List people={people} />
+    </>
   );
 }
 
